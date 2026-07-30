@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3d1f0a" />
+  <title>Romina — Fiesta Vaquera</title>
+  <meta name="description"
+    content="Romina te invita a su Fiesta Vaquera el 23 de agosto a las 12:00 pm en Granja Los Tres K." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Romina — Fiesta Vaquera" />
+  <meta property="og:description"
+    content="23 de agosto, 12:00 pm. Granja Los Tres K, Campanillas 400, Cruz del Sur 31075. Vestimenta: vaquera. ¡Trae traje de baño!" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="Fiesta Vaquera de Romina" />
+  <!-- IMPORTANTE: reemplaza esta imagen por una foto real (idealmente cuadrada, 1200x1200 o mayor, formato .jpg)
+       para que el link se vea con una tarjeta bonita al compartirse por WhatsApp. Sin esto, el link se comparte "pelón". -->
+  <meta property="og:image" content="img/meta.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Romina — Fiesta Vaquera" />
+  <meta name="twitter:description" content="23 de agosto, 12:00 pm · Granja Los Tres K" />
+  <meta name="twitter:image" content="img/meta.jpg" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 28'%3E%3Cpath fill='%233d1f0a' d='M6 20C6 20 10 10 22 10C34 10 38 20 38 20L6 20Z'/%3E%3Cpath fill='%233d1f0a' d='M14 10C14 10 16 2 22 2C28 2 30 10 30 10L14 10Z'/%3E%3Crect fill='%233d1f0a' x='6' y='20' width='32' height='3' rx='1.5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --br-dk: #3d1f0a;
+      --br-md: #6b3a1f;
+      --br-wm: #8b5e3c;
+      --cream: #fdf6ec;
+      --cream2: #f5e6ce;
+      --gold: #c9933a;
+      --gold2: #e8b96a;
+      --rose: #c2637a;
+      --rose2: #e8849a;
+      --rose3: #f4b8c8;
+      --rose4: #fde8ef;
+      --fd: 'Abril Fatface', serif;
+      --fs: 'Dancing Script', cursive;
+      --fp: 'Playfair Display', serif;
+      --fb: 'Lato', sans-serif;
+      --sw: 0 8px 40px rgba(61, 31, 10, .18);
+      --sg: 0 4px 20px rgba(201, 147, 58, .35);
+      /* procedural wood-grain noise (SVG feTurbulence) — stands in for a photographed
+         texture: adds fiber/knot irregularity that flat gradients can't fake */
+      --wood-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='wn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011 0.09' numOctaves='4' seed='11' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0 0.03 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23wn)'/%3E%3C/svg%3E");
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      color: #fdf6ec;
+      font-family: var(--fb);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      /* REALISTIC WOOD PLANK TEXTURE fills the entire page */
+      background-color: #3a1c0c;
+      background-image: linear-gradient(rgba(18, 6, 1, 0.4), rgba(18, 6, 1, 0.4)), url('img/wood_texture.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    #dc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .38
+    }
+
+    /* .wood-bg — intro door panels, RSVP band, footer */
+    .wood-bg {
+      background-color: #3a1c0c;
+      background-image: linear-gradient(rgba(18, 6, 1, 0.3), rgba(18, 6, 1, 0.3)), url('img/wood_texture.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ── INTRO ── */
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden
+    }
+
+    .ibg {
+      position: absolute;
+      inset: 0
+    }
+
+    .ibg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 4, 0, .6)
+    }
+
+    .iplk {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(180deg, transparent 0, transparent 58px, rgba(0, 0, 0, .08) 58px, rgba(0, 0, 0, .08) 62px);
+      pointer-events: none
+    }
+
+    .sl,
+    .sr {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 10;
+      background-color: #2e1408;
+      background-image: linear-gradient(rgba(10, 3, 0, 0.25), rgba(10, 3, 0, 0.25)), url('img/saloon_door_texture.png');
+      background-size: cover;
+      background-position: center;
+      transition: transform 1.2s cubic-bezier(.7, 0, .15, 1);
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, .6);
+    }
+
+    .sl {
+      left: 0;
+      transform-origin: left center;
+      border-right: 2px solid rgba(15, 5, 0, 0.7);
+    }
+
+    .sr {
+      left: 50%;
+      transform-origin: right center;
+      border-left: 2px solid rgba(15, 5, 0, 0.7);
+    }
+
+    .sl::after,
+    .sr::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.4) 100%);
+      pointer-events: none;
+    }
+
+    .sl::before,
+    .sr::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(180deg, transparent 0, transparent 58px, rgba(0, 0, 0, .1) 58px, rgba(0, 0, 0, .1) 62px)
+    }
+
+    body.dopen .sl {
+      transform: perspective(1200px) rotateY(-125deg);
+    }
+
+    body.dopen .sr {
+      transform: perspective(1200px) rotateY(125deg);
+    }
+
+    body.dopen .ic {
+      opacity: 0 !important;
+      transform: scale(1.08) !important;
+      transition: opacity .45s ease, transform .45s ease !important;
+    }
+
+    .ic {
+      position: relative;
+      z-index: 20;
+      text-align: center;
+      opacity: 0;
+      transform: scale(.88);
+      animation: ipop .9s cubic-bezier(.22, 1, .36, 1) .35s forwards;
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    @keyframes ipop {
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    .ipt {
+      font-family: var(--fb);
+      font-size: 11px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 10px;
+      opacity: .8
+    }
+
+    .itl {
+      font-family: var(--fd);
+      font-size: clamp(3.5rem, 15vw, 8rem);
+      color: #fff;
+      line-height: .88;
+      text-shadow: 3px 5px 0 var(--br-dk), 0 0 50px rgba(201, 147, 58, .6);
+      margin-bottom: 10px
+    }
+
+    .isb {
+      font-family: var(--fs);
+      font-size: clamp(1.1rem, 4.5vw, 2rem);
+      color: var(--rose3);
+      margin-bottom: 2px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .5)
+    }
+
+    /* ── LETRERO (intro signboard) ── */
+    .signboard {
+      position: relative;
+      margin-bottom: 34px;
+      padding: clamp(30px, 6vw, 52px) clamp(22px, 7vw, 64px) clamp(24px, 5vw, 40px);
+      border-radius: 5px;
+      border: 3px solid #241206;
+      background-color: #5c3018;
+      background-image: var(--wood-noise), linear-gradient(165deg, #7a4420 0%, #4a2510 45%, #3a1c0c 100%);
+      background-size: 230px 230px, auto;
+      background-blend-mode: overlay, normal;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .55), inset 0 0 50px rgba(0, 0, 0, .4), inset 0 2px 0 rgba(255, 255, 255, .06);
+    }
+
+    .nail {
+      position: absolute;
+      top: 13px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #f0c882, #8b6520 75%);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .7), inset 0 0 2px rgba(255, 255, 255, .4)
+    }
+
+    .nail.nl {
+      left: 14px
+    }
+
+    .nail.nr {
+      right: 14px
+    }
+
+    /* ── INTRO BUTTON ── */
+    #sb {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      outline: none;
+      box-shadow: none !important;
+      display: block;
+      margin: 12px auto 0;
+      transition: transform .18s ease, filter .18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .opening-btn-img {
+      width: min(220px, 68vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .65));
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    #sb:hover .opening-btn-img {
+      transform: translateY(-3px) scale(1.04);
+      filter: drop-shadow(0 14px 32px rgba(0, 0, 0, .8));
+    }
+
+    #sb:active .opening-btn-img {
+      transform: scale(.96);
+    }
+
+    /* ── RSVP ── */
+    #rv {
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    #rv::before {
+      display: none;
+    }
+
+    #rv .si {
+      position: relative;
+      z-index: 1
+    }
+
+    #sb:hover {
+      transform: translateY(-2px)
+    }
+
+    #sb:active {
+      transform: scale(.97)
+    }
+
+    @keyframes gsh {
+      0% {
+        background-position: 200%
+      }
+
+      100% {
+        background-position: -200%
+      }
+    }
+
+    @keyframes bpl {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 3px rgba(201, 147, 58, .4), 0 8px 32px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .3)
+      }
+
+      50% {
+        box-shadow: 0 0 0 9px rgba(201, 147, 58, .2), 0 8px 32px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .3)
+      }
+    }
+
+    #intro.ifade {
+      animation: ifo .7s ease forwards
+    }
+
+    @keyframes ifo {
+      to {
+        opacity: 0;
+        pointer-events: none
+      }
+    }
+
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      border-radius: 50% 0 50% 0;
+      opacity: 0;
+      animation: pf linear forwards
+    }
+
+    @keyframes pf {
+      0% {
+        opacity: .9;
+        transform: translateY(-20px) rotate(0deg)
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(105vh) rotate(680deg) translateX(var(--dr))
+      }
+    }
+
+    /* ── MAIN ── */
+    #main {
+      opacity: 0;
+      transition: opacity .8s ease
+    }
+
+    #main.vis {
+      opacity: 1
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden
+    }
+
+    /* soft dark veil so hero text pops, fades to transparent — wood shows through */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(22, 7, 0, .48) 0%, rgba(30, 10, 2, .18) 50%, transparent 100%);
+      z-index: 1
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(180deg, transparent 0, transparent 58px, rgba(0, 0, 0, .055) 58px, rgba(0, 0, 0, .055) 62px);
+      z-index: 1;
+      pointer-events: none
+    }
+
+    .hi {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 60px 24px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    /* CSS-only sombrero vaquero */
+    .hat-wrap {
+      margin-bottom: -12px;
+      z-index: 4;
+      position: relative;
+      animation: fhat 5s ease-in-out infinite
+    }
+
+    .hat-wrap img {
+      display: block;
+      width: min(260px, 60vw);
+      height: auto
+    }
+
+    @keyframes fhat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg)
+      }
+
+      50% {
+        transform: translateY(-16px) rotate(1.5deg)
+      }
+    }
+
+    /* rope SVG */
+    .rsvg {
+      width: min(460px, 90vw);
+      margin: 0 auto 16px
+    }
+
+    .hcard {
+      background: linear-gradient(155deg, rgba(253, 246, 236, .96), rgba(245, 230, 206, .99));
+      border: 2px solid var(--gold);
+      border-radius: 3px;
+      padding: clamp(24px, 5vw, 54px) clamp(20px, 7vw, 66px);
+      width: min(560px, 94vw);
+      box-shadow: 0 0 0 8px rgba(201, 147, 58, .1), 0 0 0 16px rgba(201, 147, 58, .05), var(--sw), inset 0 0 60px rgba(201, 147, 58, .04);
+      position: relative;
+      text-align: center
+    }
+
+    .cc {
+      position: absolute;
+      width: 52px;
+      height: 52px
+    }
+
+    .cc.tl {
+      top: -2px;
+      left: -2px
+    }
+
+    .cc.tr {
+      top: -2px;
+      right: -2px;
+      transform: scaleX(-1)
+    }
+
+    .cc.bl {
+      bottom: -2px;
+      left: -2px;
+      transform: scaleY(-1)
+    }
+
+    .cc.br {
+      bottom: -2px;
+      right: -2px;
+      transform: scale(-1)
+    }
+
+    .hlbl {
+      font-family: var(--fb);
+      font-size: 11px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px
+    }
+
+    .hlbl::before,
+    .hlbl::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 28px;
+      background: linear-gradient(to right, transparent, var(--gold))
+    }
+
+    .hlbl::after {
+      background: linear-gradient(to left, transparent, var(--gold))
+    }
+
+    .hnm {
+      font-family: var(--fd);
+      font-size: clamp(4rem, 16vw, 8rem);
+      color: var(--br-dk);
+      line-height: .88;
+      text-shadow: 3px 5px 0 rgba(201, 147, 58, .3), 0 0 40px rgba(201, 147, 58, .1);
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(30px)
+    }
+
+    .hnm.ani {
+      animation: sup .85s cubic-bezier(.22, 1, .36, 1) forwards
+    }
+
+    @keyframes sup {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .hsc {
+      font-family: var(--fs);
+      font-size: clamp(1.3rem, 4.5vw, 2.2rem);
+      color: var(--rose);
+      margin-bottom: 22px;
+      text-shadow: 1px 2px 8px rgba(194, 99, 122, .2);
+      opacity: 0;
+      animation: fdi .8s ease forwards .4s
+    }
+
+    .hdt {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, var(--br-dk), var(--br-md));
+      color: var(--gold2);
+      font-family: var(--fp);
+      font-size: clamp(.9rem, 3vw, 1.2rem);
+      padding: 12px 26px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+      box-shadow: var(--sg), 2px 3px 0 rgba(0, 0, 0, .22);
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fdi .8s ease forwards .65s
+    }
+
+    .dsp {
+      width: 1px;
+      height: 26px;
+      background: rgba(232, 185, 106, .35)
+    }
+
+    .hhs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 14px 0
+    }
+
+    @keyframes swy {
+
+      0%,
+      100% {
+        transform: rotate(-5deg)
+      }
+
+      50% {
+        transform: rotate(5deg)
+      }
+    }
+
+    @keyframes swf {
+
+      0%,
+      100% {
+        transform: scaleX(-1) rotate(-5deg)
+      }
+
+      50% {
+        transform: scaleX(-1) rotate(5deg)
+      }
+    }
+
+    @keyframes fdi {
+      to {
+        opacity: 1
+      }
+    }
+
+    .sh {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fdi 1s ease forwards 1.6s;
+      color: rgba(253, 236, 200, .75)
+    }
+
+    .shl {
+      font-family: var(--fb);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase
+    }
+
+    .sha {
+      width: 18px;
+      height: 18px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      animation: bdn 1.4s ease-in-out infinite
+    }
+
+    @keyframes bdn {
+
+      0%,
+      100% {
+        transform: rotate(45deg) translateY(0);
+        opacity: 1
+      }
+
+      50% {
+        transform: rotate(45deg) translateY(6px);
+        opacity: .4
+      }
+    }
+
+    /* ── CSS cowgirl boots (decorative) ── */
+    .boots-deco {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: -8px;
+      animation: fch 7s ease-in-out infinite
+    }
+
+    @keyframes fch {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    /* ── MARQUEE ── */
+    .mqs {
+      background: linear-gradient(to right, var(--br-dk), var(--br-md), var(--br-dk));
+      padding: 13px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold)
+    }
+
+    .mqt {
+      display: flex;
+      white-space: nowrap;
+      animation: mqs 22s linear infinite
+    }
+
+    .mqi {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--fd);
+      font-size: .95rem;
+      color: var(--gold2);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0 28px
+    }
+
+    @keyframes mqs {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      position: relative;
+      z-index: 1
+    }
+
+    .si {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .ey {
+      font-family: var(--fb);
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #f0c882;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .8);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .ey::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #f0c882;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+    }
+
+    .st {
+      font-family: var(--fd);
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 2px 3px 6px rgba(0, 0, 0, .9), 0 0 35px rgba(240, 200, 130, .4);
+    }
+
+    .ss {
+      font-family: var(--fs);
+      font-size: clamp(1.15rem, 3.8vw, 1.65rem);
+      color: #f8b4c4;
+      margin-bottom: 36px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, .8);
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* ── DETAILS CARDS ── */
+    #dt {
+      padding: 80px 0 60px;
+    }
+
+    .cg {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 14px
+    }
+
+    .icard {
+      flex: 1 1 228px;
+      max-width: 258px;
+      background: #fdf6ec;
+      border: 2px solid #e8b96a;
+      border-top: 4px solid #c9933a;
+      border-radius: 4px;
+      padding: 28px 22px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .45), 0 0 15px rgba(201, 147, 58, .2);
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+      cursor: default
+    }
+
+    .icard::before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      width: 14px;
+      height: 14px;
+      border-top: 2px solid #c9933a;
+      border-left: 2px solid #c9933a;
+      opacity: .7
+    }
+
+    .icard::after {
+      content: '';
+      position: absolute;
+      bottom: 9px;
+      right: 9px;
+      width: 14px;
+      height: 14px;
+      border-bottom: 2px solid #c9933a;
+      border-right: 2px solid #c9933a;
+      opacity: .7
+    }
+
+    .icard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, .55), 0 0 20px rgba(201, 147, 58, .35)
+    }
+
+    .cico {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 35% 30%, #ffffff, #fde8ef 75%);
+      border-radius: 50%;
+      border: 2px solid #c9933a;
+      box-shadow: 0 4px 12px rgba(201, 147, 58, .35), inset 0 1px 2px rgba(255, 255, 255, .9)
+    }
+
+    .clb {
+      font-family: var(--fb);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #8b4e18;
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    .cvl {
+      font-family: var(--fp);
+      font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+      font-weight: 900;
+      color: #2b1104;
+      line-height: 1.2
+    }
+
+    .cdiv {
+      width: 28px;
+      height: 2px;
+      background: linear-gradient(to right, #c9933a, transparent);
+      margin: 10px 0
+    }
+
+    .csb {
+      font-size: .88rem;
+      color: #5c3012;
+      font-weight: 600;
+      line-height: 1.4
+    }
+
+    /* ── PINATA / LLUVIA DE SOBRES ── */
+    #pn {
+      padding: 70px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #pn .si {
+      position: relative;
+      z-index: 3;
+    }
+
+    #pn p {
+      color: #fdf6ec !important;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .8);
+    }
+
+    .envelope-particle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      animation: envFall linear infinite;
+    }
+
+    @keyframes envFall {
+      0% {
+        opacity: 0;
+        transform: translateY(-25px) rotate(0deg) scale(0.8);
+      }
+      15% {
+        opacity: 0.38;
+      }
+      85% {
+        opacity: 0.38;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(280px) rotate(360deg) scale(1.05) translateX(var(--envDrift));
+      }
+    }
+
+    /* ── DRESS CODE ── */
+    #dr {
+      padding: 70px 0;
+      overflow: hidden
+    }
+
+    .dw {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .dtx {
+      flex: 1;
+      min-width: 268px
+    }
+
+    .dtx > p {
+      color: #fdf6ec !important;
+      font-size: 1.05rem !important;
+      line-height: 1.8 !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .85);
+    }
+
+    .dvi {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center
+    }
+
+    .dtgs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px
+    }
+
+    .dtg {
+      background: rgba(45, 18, 5, 0.85);
+      border: 1.5px solid #f0c882;
+      color: #f0c882;
+      font-family: var(--fb);
+      font-size: .85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 4px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .5);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .8);
+    }
+
+    .dtg.r {
+      background: linear-gradient(135deg, #c24b66, #882239);
+      border: 1.5px solid #f8b4c4;
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    }
+
+    /* ── LOCATION ── */
+    #lc {
+      padding: 70px 0 80px;
+    }
+
+    .mw {
+      margin-top: 26px;
+      border: 3px solid #f0c882;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .6);
+    }
+
+    .mw iframe {
+      display: block;
+      width: 100%;
+      height: 340px;
+      border: none
+    }
+
+    .as {
+      background: linear-gradient(135deg, #3d1b0a, #200a02);
+      border-bottom: 1.5px solid #f0c882;
+      color: #fdf6ec;
+      padding: 18px 26px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .an {
+      font-family: var(--fp);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #f0c882;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
+    }
+
+    .ad {
+      font-size: .88rem;
+      color: #fdf6ec;
+      opacity: .95;
+      margin-top: 2px
+    }
+
+    .mb-img-link {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .map-btn-img {
+      width: min(210px, 68vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .6));
+      transition: transform .2s ease, filter .2s ease;
+      cursor: pointer;
+    }
+
+    .mb-img-link:hover .map-btn-img {
+      transform: translateY(-3px) scale(1.03);
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .75));
+    }
+
+    .mb-img-link:active .map-btn-img {
+      transform: scale(.98);
+    }
+
+    /* ── RSVP ── */
+    #rv {
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    #rv .si {
+      position: relative;
+      z-index: 1
+    }
+
+    .rc {
+      background: rgba(30, 10, 2, 0.85);
+      backdrop-filter: blur(16px);
+      border: 2px solid #f0c882;
+      border-radius: 6px;
+      padding: 42px clamp(20px, 6vw, 56px);
+      max-width: 520px;
+      margin: 0 auto;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, .65), inset 0 0 30px rgba(240, 200, 130, .1)
+    }
+
+    .rc > p {
+      color: #fdf6ec !important;
+      font-size: 1.05rem !important;
+      line-height: 1.8 !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+    }
+
+    .wb {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #25D366;
+      color: #fff;
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: clamp(.95rem, 3.5vw, 1.12rem);
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 20px 36px;
+      border-radius: 4px;
+      box-shadow: 0 8px 28px rgba(37, 211, 102, .4), 0 4px 10px rgba(0, 0, 0, .4);
+      transition: transform .15s, box-shadow .15s;
+      animation: wap 2.5s ease-in-out infinite
+    }
+
+    .wb:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(37, 211, 102, .55), 0 6px 14px rgba(0, 0, 0, .5);
+      animation: none
+    }
+
+    .wb:active {
+      transform: scale(.97)
+    }
+
+    @keyframes wap {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 28px rgba(37, 211, 102, .4), 0 4px 10px rgba(0, 0, 0, .4)
+      }
+
+      50% {
+        box-shadow: 0 8px 44px rgba(37, 211, 102, .65), 0 4px 10px rgba(0, 0, 0, .4)
+      }
+    }
+
+    .rn {
+      margin-top: 22px;
+      font-size: .88rem;
+      color: #fdf6ec;
+      opacity: .9;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
+    }
+
+    .rg {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(240, 200, 130, .3)
+    }
+
+    .rl {
+      font-family: var(--fp);
+      font-size: 1rem;
+      font-style: italic;
+      color: #f0c882;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .gt {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(240, 200, 130, .18);
+      border: 1.5px solid #f0c882;
+      color: #f0c882;
+      padding: 10px 20px;
+      border-radius: 3px;
+      font-family: var(--fb);
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .4);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 38px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(240, 200, 130, .3)
+    }
+
+    .fi {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px
+    }
+
+    .fl {
+      width: 64px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #f0c882, transparent)
+    }
+
+    .fn {
+      font-family: var(--fs);
+      font-size: 2.5rem;
+      color: #f0c882;
+      text-shadow: 0 0 25px rgba(240, 200, 130, .5)
+    }
+
+    .fno {
+      font-size: .82rem;
+      color: #fdf6ec;
+      opacity: .9;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
+    }
+
+    /* Section text/label legibility on dark wood */
+    .ey {
+      color: var(--gold2)
+    }
+
+    .ey::before {
+      background: var(--gold2)
+    }
+
+    .st {
+      color: #fff;
+      text-shadow: 2px 3px 0 rgba(30, 8, 0, .5), 0 0 30px rgba(201, 147, 58, .2)
+    }
+
+    .ss {
+      color: var(--rose3);
+      text-shadow: 0 1px 6px rgba(0, 0, 0, .35)
+    }
+
+    /* Keep card internal text dark for readability */
+    .icard .cvl {
+      color: var(--br-dk)
+    }
+
+    .icard .csb {
+      color: var(--br-wm)
+    }
+
+    .icard .clb {
+      color: var(--gold)
+    }
+
+    /* Pinata/gift text */
+    #pn>div>p {
+      color: rgba(253, 236, 200, .8) !important
+    }
+
+    /* Dress code text */
+    .dtx>p {
+      color: rgba(248, 230, 196, .82) !important
+    }
+
+    /* ── ACCESSIBILITY ── */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--gold2);
+      outline-offset: 3px;
+      border-radius: 2px
+    }
+
+    /* ── TAGS ── */
+    .dtg {
+      display: inline-flex;
+      align-items: center
+    }
+
+    /* ── ORNAMENT DIVIDER (replaces decorative emoji flourishes) ── */
+    .orn-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px
+    }
+
+    .orn-ln {
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, currentColor)
+    }
+
+    .orn-row .orn-ln:last-child {
+      background: linear-gradient(to left, transparent, currentColor)
+    }
+
+    /* ── CARTA (welcome letter) ── */
+    #cw {
+      padding: 70px 0 20px;
+      text-align: center
+    }
+
+    /* ── CARTA (welcome letter) ── */
+    #cw {
+      padding: 70px 0 20px;
+      text-align: center
+    }
+
+    .cwtxt {
+      font-family: var(--fp);
+      font-style: italic;
+      font-size: clamp(1.05rem, 3.2vw, 1.3rem);
+      line-height: 1.85;
+      color: #fdf6ec;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .85);
+      max-width: 620px;
+      margin: 0 auto
+    }
+
+    .cwsig {
+      margin-top: 22px;
+      font-family: var(--fs);
+      font-size: 1.8rem;
+      color: #f8b4c4;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, .8);
+    }
+
+    /* ── COUNTDOWN ── */
+    #cd {
+      padding: 60px 0 80px;
+      text-align: center
+    }
+
+    .cdgrid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: 560px;
+      margin: 30px auto 0
+    }
+
+    .cdbox {
+      background: #fdf6ec;
+      border: 2px solid #e8b96a;
+      border-radius: 4px;
+      padding: 18px 6px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .45);
+    }
+
+    .cdnum {
+      font-family: var(--fd);
+      font-size: clamp(1.8rem, 7vw, 2.8rem);
+      color: #2b1104;
+      font-weight: 900;
+      line-height: 1
+    }
+
+    .cdlbl {
+      font-family: var(--fb);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8b4e18;
+      font-weight: 700;
+      margin-top: 6px
+    }
+
+    .cdnote {
+      margin-top: 20px;
+      font-family: var(--fb);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f0c882;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
+    }
+
+    /* ── AVISO (pool notice) ── */
+    #av {
+      padding: 16px 0 70px
+    }
+
+    .avbox {
+      max-width: 560px;
+      margin: 30px auto 0;
+      background: rgba(35, 12, 4, 0.85);
+      backdrop-filter: blur(10px);
+      border: 2px dashed #f8b4c4;
+      border-radius: 6px;
+      padding: 30px clamp(20px, 5vw, 42px);
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .5);
+    }
+
+    .avico {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 35% 30%, #ffffff, #fde8ef 75%);
+      border-radius: 50%;
+      border: 2px solid #f8b4c4;
+      box-shadow: 0 4px 12px rgba(194, 99, 122, .35)
+    }
+
+    .avtxt {
+      font-family: var(--fp);
+      font-size: 1.05rem;
+      color: #fdf6ec;
+      line-height: 1.8;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .8);
+    }
+
+    .avtxt strong {
+      color: #f8b4c4;
+      font-weight: 700
+    }
+
+    /* ── AUDIO TOGGLE ── */
+    #snd {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 500;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--br-dk);
+      border: 2px solid var(--gold);
+      color: var(--gold2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .4);
+      transition: transform .15s;
+      opacity: 0;
+      pointer-events: none
+    }
+
+    #snd.show {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    #snd:hover {
+      transform: scale(1.08)
+    }
+
+    #snd svg {
+      width: 20px;
+      height: 20px
+    }
+
+    @media(max-width:600px) {
+      .cdgrid {
+        gap: 8px
+      }
+
+      .cdbox {
+        padding: 12px 4px
+      }
+
+      .icard {
+        flex: 1 1 100%;
+        max-width: 400px
+      }
+
+      .dw {
+        flex-direction: column-reverse;
+        text-align: center
+      }
+
+      .dtgs {
+        justify-content: center
+      }
+
+      .dvi {
+        margin: 0 auto
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="dc"></canvas>
+
+  <!-- IMPORTANTE: agrega tu archivo de musica de fondo aqui (mismo folder que index.html) -->
+  <audio id="bgm" src="musica-fondo.mp3" loop preload="none"></audio>
+  <button id="snd" aria-label="Silenciar musica" aria-pressed="false">
+    <svg id="sndOn" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" />
+      <path d="M16.5 8.5a5 5 0 010 7M19 6a9 9 0 010 12" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" />
+    </svg>
+    <svg id="sndOff" viewBox="0 0 24 24" fill="none" style="display:none" aria-hidden="true">
+      <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" />
+      <path d="M15 9l6 6M21 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+    </svg>
+  </button>
+
+  <!-- ══════════════════════════════════════════
+     INTRO — PUERTAS DE SALOON (pure CSS/SVG)
+══════════════════════════════════════════════ -->
+  <div id="intro">
+    <div class="ibg wood-bg"></div>
+    <div class="iplk"></div>
+    <div class="sl wood-bg"></div>
+    <div class="sr wood-bg"></div>
+    <div class="ic">
+      <!-- Letrero: si generas una imagen propia (letrero de madera real), reemplaza
+         --sign-wood por url('assets/letrero.png') y quita el fallback de textura -->
+      <img src="img/letrero-opening.png" alt="Con mucho cariño — Romina — Fiesta Vaquera"
+        style="width:min(680px,94vw);height:auto;display:block;margin:0 auto 8px;filter:drop-shadow(0 14px 32px rgba(0,0,0,.55));animation:ipop .9s cubic-bezier(.22,1,.36,1) .35s both" />
+      <button id="sb" aria-label="Entrar al Rancho">
+        <img src="img/boton-opening.png" alt="Entrar al Rancho" class="opening-btn-img" />
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
+  <div id="main">
+
+    <!-- ── HERO ── -->
+    <section id="hero" class="wood-bg" aria-label="Inicio">
+      <div class="hi">
+
+        <!-- Letrero hero PNG -->
+        <img src="img/letrero-hero.png" alt="Romina — Fiesta Vaquera · 23 de Agosto · 12:00 pm" id="hn"
+          style="width:min(540px,90vw);height:auto;display:block;margin:0 auto 20px;filter:drop-shadow(0 18px 38px rgba(0,0,0,.55));opacity:0;animation:fdi .9s ease forwards .3s" />
+
+        <div class="sh" aria-hidden="true">
+          <span class="shl">Desliza</span>
+          <div class="sha"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MARQUEE ── -->
+    <div class="mqs" aria-hidden="true">
+      <div class="mqt">
+        <span class="mqi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e8b96a">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+          </svg>Fiesta Vaquera</span>
+        <span class="mqi"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f4b8c8">
+            <circle cx="12" cy="12" r="10" />
+          </svg>23 de Agosto</span>
+        <span class="mqi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e8b96a">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+          </svg>Romina</span>
+        <span class="mqi"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f4b8c8">
+            <circle cx="12" cy="12" r="10" />
+          </svg>12:00 pm</span>
+        <span class="mqi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e8b96a">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+          </svg>Granja Los Tres K</span>
+        <span class="mqi"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f4b8c8">
+            <circle cx="12" cy="12" r="10" />
+          </svg>Vaquera</span>
+        <span class="mqi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e8b96a">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+          </svg>Fiesta Vaquera</span>
+        <span class="mqi"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f4b8c8">
+            <circle cx="12" cy="12" r="10" />
+          </svg>23 de Agosto</span>
+        <span class="mqi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e8b96a">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+          </svg>Romina</span>
+        <span class="mqi"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f4b8c8">
+            <circle cx="12" cy="12" r="10" />
+          </svg>12:00 pm</span>
+        <span class="mqi"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e8b96a">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+          </svg>Granja Los Tres K</span>
+        <span class="mqi"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f4b8c8">
+            <circle cx="12" cy="12" r="10" />
+          </svg>Vaquera</span>
+      </div>
+    </div>
+
+    <!-- ── CARTA ── -->
+    <section id="cw" aria-label="Mensaje de bienvenida">
+      <div class="si">
+        <div class="rv" style="text-align:center">
+          <div class="ey" style="justify-content:center">Bienvenida</div>
+          <h2 class="st">Un Corazón de Rancho</h2>
+          <p class="cwtxt">Romina tiene esa chispa que contagia a todo el que la conoce: risa fácil, curiosidad sin
+            límites y ganas de vivir cada día como una aventura nueva. Por eso, para celebrarla no bastaba una fiesta
+            cualquiera — queríamos algo con botas puestas, sombrero bien calado y todo el espíritu del rancho. Gracias
+            por ser parte de su historia y por acompañarnos a celebrar este día tan especial.</p>
+          <div class="cwsig">— Con cariño, su familia —</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COUNTDOWN ── -->
+    <section id="cd" aria-label="Cuenta regresiva">
+      <div class="si">
+        <div class="rv" style="text-align:center">
+          <div class="ey" style="justify-content:center">El Reloj del Rancho</div>
+          <h2 class="st">Faltan para el Rodeo</h2>
+          <p class="ss">¡Prepara tus botas, ya casi llega el gran día!</p>
+        </div>
+        <div class="cdgrid rv" style="transition-delay:.15s">
+          <div class="cdbox">
+            <div class="cdnum" id="cdD">--</div>
+            <div class="cdlbl">Días</div>
+          </div>
+          <div class="cdbox">
+            <div class="cdnum" id="cdH">--</div>
+            <div class="cdlbl">Horas</div>
+          </div>
+          <div class="cdbox">
+            <div class="cdnum" id="cdM">--</div>
+            <div class="cdlbl">Min</div>
+          </div>
+          <div class="cdbox">
+            <div class="cdnum" id="cdS">--</div>
+            <div class="cdlbl">Seg</div>
+          </div>
+        </div>
+        <div class="cdnote rv" style="transition-delay:.25s">23 de Agosto · 12:00 pm</div>
+      </div>
+    </section>
+
+    <!-- ── DETAILS ── -->
+    <section id="dt" aria-label="Detalles del evento">
+      <div class="si">
+        <div class="rv">
+          <div class="ey">El itinerario</div>
+          <h2 class="st">Aparta la Fecha</h2>
+          <p class="ss">Todo lo que necesitas para el gran día</p>
+        </div>
+        <div class="cg">
+          <div class="icard rv" style="transition-delay:.05s">
+            <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="18" rx="2" stroke="#c9933a" stroke-width="1.8" />
+                <path d="M2 9h20" stroke="#c9933a" stroke-width="1.8" />
+                <path d="M7 2v4M17 2v4" stroke="#c9933a" stroke-width="1.8" stroke-linecap="round" />
+                <rect x="7" y="13" width="3" height="3" rx=".5" fill="#c9933a" />
+              </svg></div>
+            <div class="clb">Fecha</div>
+            <div class="cvl">23 de Agosto</div>
+            <div class="cdiv"></div>
+            <div class="csb">¡Marca el calendario!</div>
+          </div>
+          <div class="icard rv" style="transition-delay:.12s">
+            <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#c9933a" stroke-width="1.8" />
+                <path d="M12 7v5l4 2.5" stroke="#c9933a" stroke-width="1.8" stroke-linecap="round" />
+              </svg></div>
+            <div class="clb">Hora</div>
+            <div class="cvl">12:00 pm</div>
+            <div class="cdiv"></div>
+            <div class="csb">¡No llegues tarde al rodeo!</div>
+          </div>
+          <div class="icard rv" style="transition-delay:.19s">
+            <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#c9933a"
+                  stroke-width="1.8" />
+                <circle cx="12" cy="9" r="2.5" stroke="#c9933a" stroke-width="1.8" />
+              </svg></div>
+            <div class="clb">Lugar</div>
+            <div class="cvl">Granja Los Tres K</div>
+            <div class="cdiv"></div>
+            <div class="csb">Campanillas 400, Cruz del Sur, 31075</div>
+          </div>
+          <div class="icard rv" style="transition-delay:.26s">
+            <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l2.6 6.2L21 10l-5 4.4 1.5 6.6L12 17.8 6.5 21l1.5-6.6L3 10l6.4-.8z" stroke="#c2637a"
+                  stroke-width="1.6" stroke-linejoin="round" />
+              </svg></div>
+            <div class="clb">Piñata</div>
+            <div class="cvl">Temática Vaquera</div>
+            <div class="cdiv"></div>
+            <div class="csb">¡Habrá dulces y sorpresas!</div>
+          </div>
+          <div class="icard rv" style="transition-delay:.33s">
+            <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="1.6" stroke="#c9933a" stroke-width="1.7" />
+                <path d="M12 6.1v2" stroke="#c9933a" stroke-width="1.7" stroke-linecap="round" />
+                <path d="M12 8.1L3 14.5a2 2 0 001.1 3.6h15.8a2 2 0 001.1-3.6z" stroke="#c9933a" stroke-width="1.7"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <div class="clb">Vestimenta</div>
+            <div class="cvl">¡Estilo Vaquero!</div>
+            <div class="cdiv"></div>
+            <div class="csb">Botas, sombrero y todo el estilo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── REGALO / LLUVIA DE SOBRES ── -->
+    <section id="pn" aria-label="Regalo sugerido">
+      <div class="si">
+        <div class="rv" style="text-align:center">
+          <div class="ey" style="justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M20 12v10H4V12" stroke="#c9933a" stroke-width="1.8" />
+              <path d="M22 7H2v5h20V7z" stroke="#c9933a" stroke-width="1.8" />
+              <path d="M12 22V7" stroke="#c9933a" stroke-width="1.8" />
+              <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" stroke="#c9933a" stroke-width="1.8" />
+              <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#c9933a" stroke-width="1.8" />
+            </svg>Sugerencia de regalo</div>
+          <h2 class="st">Lluvia de Sobres</h2>
+          <p class="ss">Tu presencia ya es el mejor regalo</p>
+          <p
+            style="font-family:var(--fp);font-size:1rem;color:var(--br-wm);line-height:1.75;max-width:480px;margin:0 auto;font-style:italic">
+            Si deseas hacerle un regalo especial a Romina, una lluvia de sobres es la manera más bonita de contribuir a
+            sus sueños.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DRESS CODE ── -->
+    <section id="dr" aria-label="Código de vestimenta">
+      <div class="si">
+        <div class="dw">
+          <div class="dtx rv">
+            <div class="ey">Código del Corral</div>
+            <h2 class="st">¡Vístete al<br />Estilo Vaquero!</h2>
+            <p class="ss">El estilo del rancho</p>
+            <p style="font-family:var(--fb);font-size:.96rem;color:var(--br-wm);line-height:1.72;max-width:360px">Ven
+              con tu mejor outfit vaquero. Sombreros, botas, flecos — todo vale.</p>
+            <div class="dtgs">
+              <span class="dtg">Sombrero</span>
+              <span class="dtg r">Botas</span>
+              <span class="dtg">Flecos</span>
+              <span class="dtg r">Flores</span>
+            </div>
+          </div>
+          <!-- SVG boots (dress-code section) -->
+          <div class="dvi rv" style="transition-delay:.2s">
+            <!-- Botas grandes: reemplaza con tu propio PNG (fondo transparente, ~400x560px) -->
+            <img src="assets/botas-grande.png" alt="" width="200" height="280"
+              style="animation:fch 7s ease-in-out infinite;filter:drop-shadow(0 16px 28px rgba(61,31,10,.2))"
+              onerror="this.parentElement.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AVISO (alberca) ── -->
+    <section id="av" aria-label="Aviso importante">
+      <div class="si">
+        <div class="rv" style="text-align:center">
+          <div class="ey" style="justify-content:center">Aviso Importante</div>
+          <h2 class="st">¡Habrá Alberca!</h2>
+          <p class="ss">No se te olvide nada</p>
+        </div>
+        <div class="avbox rv" style="transition-delay:.15s">
+          <div class="avico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke="#c2637a" stroke-width="1.8" stroke-linecap="round" />
+              <path d="M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke="#c2637a" stroke-width="1.8" stroke-linecap="round" />
+              <path d="M2 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke="#c2637a" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
+          <p class="avtxt">Habrá actividades acuáticas, así que prepárate. No olvides tu <strong>traje de
+              baño</strong>, <strong>bloqueador solar</strong>, una <strong>toalla</strong> y una <strong>muda de
+              ropa</strong> para cambiarte.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LOCATION ── -->
+    <section id="lc" aria-label="Ubicación">
+      <div class="si">
+        <div class="rv">
+          <div class="ey">Coordenadas del Rancho</div>
+          <h2 class="st">El Rancho</h2>
+          <p class="ss">Granja Los Tres K</p>
+        </div>
+        <div class="rv" style="transition-delay:.15s">
+          <div class="mw">
+            <div class="as">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#e8b96a" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" fill="white" />
+              </svg>
+              <div>
+                <div class="an">Granja Los Tres K</div>
+                <div class="ad">Campanillas 400, Cruz del Sur, 31075 — Chihuahua</div>
+              </div>
+            </div>
+            <iframe src="https://maps.google.com/maps?q=28.7145,-106.1272&output=embed&z=15" loading="lazy"
+              allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa Granja Los Tres K"
+              aria-label="Mapa del evento"></iframe>
+          </div>
+          <a href="https://maps.app.goo.gl/EUXw7aMXGLDSQDwf9" target="_blank" rel="noopener noreferrer" class="mb-img-link"
+            id="map-link" aria-label="Abrir en Google Maps">
+            <img src="img/boton-mapa.png" alt="Cómo Llegar — Abrir en Google Maps" class="map-btn-img" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RSVP ── -->
+    <section id="rv" class="wood-bg" aria-label="Confirmar asistencia">
+      <div class="si">
+        <div class="rv">
+          <div class="ey">Última Parada</div>
+          <h1 class="st">¿Te Apuntas al Rodeo?</h1>
+          <p class="ss">Cuéntanos cuántas personas nos acompañarán</p>
+        </div>
+        <div class="rc rv" style="transition-delay:.2s">
+          <p
+            style="font-family:var(--fp);font-size:.97rem;color:rgba(253,246,236,.7);line-height:1.75;margin-bottom:26px;font-style:italic">
+            Por favor confirma tu asistencia e indícanos cuántas personas vendrán. ¡Te esperamos con todo el rodeo!</p>
+          <a href="https://wa.me/526142536748?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Romina%20el%2023%20de%20agosto%20%F0%9F%A4%A0%20Seremos%20__%20personas."
+            target="_blank" rel="noopener noreferrer" class="wb" id="whatsapp-btn" aria-label="Confirmar por WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Confirmar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="wood-bg" role="contentinfo">
+      <div class="fi">
+        <!-- Escena decorativa (heno/barril): reemplaza con tu propio PNG, ~640x200px -->
+        <img src="assets/rancho-detalle.png" alt="" width="320" height="100" style="margin-bottom:8px;opacity:.85"
+          onerror="this.style.display='none'">
+        <div class="fl"></div>
+        <div class="fn">Romina</div>
+        <div class="fl"></div>
+        <p class="fno" style="font-size:.88rem;color:#f0c882;margin-top:10px;letter-spacing:3px;text-shadow:0 0 15px rgba(240,200,130,0.4);">¡GRACIAS POR ACOMPAÑARME!</p>
+      </div>
+    </footer>
+  </div><!-- /#main -->
+
+  <script>
+    /* ── DUST PARTICLES ── */
+    (function () {
+      var c = document.getElementById('dc'), ctx = c.getContext('2d'), W, H, pts = [];
+      function rsz() { W = c.width = window.innerWidth; H = c.height = window.innerHeight }
+      rsz(); window.addEventListener('resize', rsz);
+      var cols = ['#e8b96a', '#f4b8c8', '#c9933a', '#e8849a', '#fff8ee', '#c4976a'];
+      function mk() { return { x: Math.random() * W, y: Math.random() * H, r: Math.random() * 2.8 + .9, color: cols[Math.floor(Math.random() * cols.length)], vx: (Math.random() - .5) * .38, vy: Math.random() * .48 + .12, a: Math.random() * .5 + .08, rot: Math.random() * Math.PI * 2, rv: (Math.random() - .5) * .025 } }
+      for (var i = 0; i < 60; i++)pts.push(mk());
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (var j = 0; j < pts.length; j++) {
+          var p = pts[j];
+          ctx.save(); ctx.globalAlpha = p.a; ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+          ctx.fillStyle = p.color; ctx.beginPath();
+          ctx.moveTo(0, -p.r * 1.9); ctx.lineTo(p.r, 0); ctx.lineTo(0, p.r * 1.9); ctx.lineTo(-p.r, 0); ctx.closePath(); ctx.fill();
+          ctx.restore();
+          p.x += p.vx; p.y += p.vy; p.rot += p.rv;
+          if (p.y > H + 10) Object.assign(p, mk(), { y: -10 });
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ── INTRO ── */
+    var sb = document.getElementById('sb'), intro = document.getElementById('intro'), main = document.getElementById('main');
+    sb.addEventListener('click', function () {
+      document.body.classList.add('dopen');
+      spawnPetals();
+      startMusic();
+      setTimeout(function () {
+        main.classList.add('vis');
+        setupRv();
+        startCountdown();
+        spawnEnvelopeRain();
+        setTimeout(function () { document.getElementById('hn').classList.add('ani'); }, 80);
+      }, 450);
+      setTimeout(function () { intro.classList.add('ifade'); }, 850);
+      setTimeout(function () { intro.style.display = 'none'; }, 1600);
+    });
+
+    /* ── LLUVIA DE SOBRES ROSADOS ── */
+    function spawnEnvelopeRain() {
+      var pn = document.getElementById('pn');
+      if (!pn) return;
+      var colors = ['#f4b8c8', '#e8849a', '#fde8ef', '#f48fb1', '#f06292'];
+      for (var i = 0; i < 22; i++) {
+        var env = document.createElement('div');
+        env.className = 'envelope-particle';
+        var left = Math.random() * 92 + 4;
+        var delay = Math.random() * 5.5;
+        var dur = Math.random() * 4 + 4.5;
+        var drift = (Math.random() - 0.5) * 90;
+        var sz = Math.random() * 16 + 22;
+        var color = colors[Math.floor(Math.random() * colors.length)];
+
+        env.style.left = left + '%';
+        env.style.top = '-20px';
+        env.style.animationDelay = delay + 's';
+        env.style.animationDuration = dur + 's';
+        env.style.setProperty('--envDrift', drift + 'px');
+
+        env.innerHTML = '<svg width="' + sz + '" height="' + Math.round(sz * 0.72) + '" viewBox="0 0 24 18" fill="none"><rect x="1" y="1" width="22" height="16" rx="2" fill="' + color + '" stroke="#ffffff" stroke-width="1.2"/><path d="M1 2l11 9L23 2" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/></svg>';
+
+        pn.appendChild(env);
+      }
+    }
+
+    /* ── PETAL CONFETTI ── */
+    function spawnPetals() {
+      var cls = ['#f4b8c8', '#e8849a', '#fde8ef', '#c2637a', '#e8b96a', '#fdf6ec'];
+      for (var i = 0; i < 42; i++) {
+        (function (idx) {
+          setTimeout(function () {
+            var p = document.createElement('div'); p.className = 'petal';
+            var sz = Math.random() * 13 + 7, x = Math.random() * window.innerWidth;
+            var dur = Math.random() * 3 + 3.2, drift = (Math.random() - .5) * 210;
+            p.style.cssText = 'left:' + x + 'px;top:-22px;width:' + sz + 'px;height:' + (sz * .58) + 'px;background:' + cls[Math.floor(Math.random() * cls.length)] + ';--dr:' + drift + 'px;animation-duration:' + dur + 's;animation-delay:' + (Math.random() * 1.6) + 's;';
+            document.body.appendChild(p);
+            setTimeout(function () { p.remove() }, (dur + 2) * 1000);
+          }, idx * 55);
+        })(i);
+      }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    function setupRv() {
+      var els = document.querySelectorAll('.rv'), obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } });
+      }, { threshold: .1 });
+      els.forEach(function (el) { obs.observe(el) });
+    }
+
+    /* ── COUNTDOWN ──
+       Fecha objetivo: 23 de agosto de 2026, 12:00 pm (hora local del dispositivo).
+       Si tu evento es en otro anio, ajusta la linea de abajo. */
+    function startCountdown() {
+      var target = new Date('2026-08-23T12:00:00');
+      var elD = document.getElementById('cdD'), elH = document.getElementById('cdH'), elM = document.getElementById('cdM'), elS = document.getElementById('cdS');
+      if (!elD) return;
+      function tick() {
+        var diff = target - new Date();
+        if (diff <= 0) { elD.textContent = '¡'; elH.textContent = 'Ya'; elM.textContent = 'es'; elS.textContent = 'hoy!'; return }
+        var d = Math.floor(diff / 86400000), h = Math.floor(diff % 86400000 / 3600000), m = Math.floor(diff % 3600000 / 60000), s = Math.floor(diff % 60000 / 1000);
+        elD.textContent = d; elH.textContent = String(h).padStart(2, '0'); elM.textContent = String(m).padStart(2, '0'); elS.textContent = String(s).padStart(2, '0');
+        requestAnimationFrame(function () { setTimeout(tick, 1000) });
+      }
+      tick();
+    }
+
+    /* ── MUSICA DE FONDO ──
+       Requiere que subas un archivo llamado "musica-fondo.mp3" junto al index.html.
+       El navegador bloquea el autoplay con sonido, por eso arranca justo al hacer
+       clic en "Entrar al Rancho" (gesto del usuario) y no antes. */
+    var bgm = document.getElementById('bgm'), sndBtn = document.getElementById('snd'), sndOn = document.getElementById('sndOn'), sndOff = document.getElementById('sndOff'), musicOn = true;
+    function startMusic() {
+      bgm.volume = .45;
+      var p = bgm.play();
+      if (p && p.catch) p.catch(function () { /* sin archivo de audio aun, o el navegador lo bloqueo — no pasa nada */ });
+      sndBtn.classList.add('show');
+    }
+    sndBtn.addEventListener('click', function () {
+      musicOn = !musicOn;
+      if (musicOn) { bgm.play().catch(function () { }); sndOn.style.display = ''; sndOff.style.display = 'none'; sndBtn.setAttribute('aria-pressed', 'false') }
+      else { bgm.pause(); sndOn.style.display = 'none'; sndOff.style.display = ''; sndBtn.setAttribute('aria-pressed', 'true') }
+    });
+  </script>
+</body>
+
+</html>
