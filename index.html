@@ -121,14 +121,20 @@
     }
 
     /* ── FIXED BACKGROUND LAYER ──
-       position:fixed + top/left/width/height (not inset + dvh) avoids the
-       repaint that causes the white-flash on Android Chrome address-bar scroll */
+       height uses lvh (large viewport height = tallest possible state, when the
+       browser's address bar is fully collapsed) instead of a plain percentage.
+       A percentage height on a fixed element can get "stuck" at the shorter
+       viewport size and fail to grow back when the address bar hides during
+       scroll, leaving a gap of solid background-color at the bottom of the
+       screen. Sizing to the largest possible viewport up front means the
+       layer is always tall enough, with no scroll-triggered recalculation. */
     #bg-fixed {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      height: 100lvh;
       z-index: -2;
       pointer-events: none;
       background-color: #3a1c0c;
@@ -147,7 +153,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      height: 100lvh;
       pointer-events: none;
       z-index: 0;
       opacity: .38
