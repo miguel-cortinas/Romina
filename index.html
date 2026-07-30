@@ -40,6 +40,12 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 28'%3E%3Cpath fill='%233d1f0a' d='M6 20C6 20 10 10 22 10C34 10 38 20 38 20L6 20Z'/%3E%3Cpath fill='%233d1f0a' d='M14 10C14 10 16 2 22 2C28 2 30 10 30 10L14 10Z'/%3E%3Crect fill='%233d1f0a' x='6' y='20' width='32' height='3' rx='1.5'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload: these paint on the very first screen, so they must start
+       downloading immediately instead of waiting to be discovered inside CSS -->
+  <link rel="preload" as="image" href="img/wood_texture.png" />
+  <link rel="preload" as="image" href="img/saloon_door_texture.png" />
+  <link rel="preload" as="image" href="img/letrero-opening.png" />
+  <link rel="preload" as="image" href="img/boton-opening.png" />
   <link
     href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap"
     rel="stylesheet" />
@@ -50,6 +56,11 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0
+    }
+
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
     }
 
     :root {
@@ -111,6 +122,8 @@
       position: relative;
       /* Force background so there is NO transparent gap at the bottom */
       background-color: #3a1c0c;
+      /* Contains rubber-band bounce so it doesn't reveal anything behind the page */
+      overscroll-behavior-y: none;
     }
 
     body:not(.dopen) {
@@ -1668,8 +1681,8 @@
     /* ── AUDIO TOGGLE ── */
     #snd {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      right: calc(20px + env(safe-area-inset-right));
       z-index: 500;
       width: 48px;
       height: 48px;
@@ -1850,7 +1863,8 @@
               stroke-width="1.8">
               <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
             </svg>Bienvenida</div>
-          <img src="img/te invitamos.png" alt="¡Te Invitamos!" class="welcome-header-img" />
+          <img loading="lazy" decoding="async" src="img/te invitamos.png" alt="¡Te Invitamos!"
+            class="welcome-header-img" />
           <p class="cwtxt">Te damos la más cordial bienvenida a esta celebración tan especial. Queremos festejar
             este
             día lleno de alegría, música y momentos inolvidables al estilo vaquero. Prepara tus botas y tu
@@ -1888,7 +1902,7 @@
               <circle cx="12" cy="12" r="9" />
               <path d="M12 7v5l3 3" stroke-linecap="round" />
             </svg>¿Cuánto falta?</div>
-          <img src="img/FALTAN.png" alt="¡Faltan...!" class="section-header-img" />
+          <img loading="lazy" decoding="async" src="img/FALTAN.png" alt="¡Faltan...!" class="section-header-img" />
           <p class="ss">¡Prepara tus botas, ya casi llega el gran día!</p>
         </div>
         <div class="cdgrid rv" style="transition-delay:.15s">
@@ -1939,7 +1953,8 @@
               <rect x="3" y="4" width="18" height="16" rx="2" />
               <path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round" />
             </svg>Detalles del Evento</div>
-          <img src="img/aparta la fecha.png" alt="Aparta la Fecha" class="section-header-img" />
+          <img loading="lazy" decoding="async" src="img/aparta la fecha.png" alt="Aparta la Fecha"
+            class="section-header-img" />
           <p class="ss">Todo lo que necesitas saber</p>
         </div>
         <div class="cg">
@@ -2019,7 +2034,8 @@
               <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" stroke="#e8b96a" stroke-width="1.8" />
               <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#e8b96a" stroke-width="1.8" />
             </svg>Sugerencia de regalo</div>
-          <img src="img/lluvia de sobres.png" alt="Lluvia de Sobres" class="section-header-img" />
+          <img loading="lazy" decoding="async" src="img/lluvia de sobres.png" alt="Lluvia de Sobres"
+            class="section-header-img" />
           <p class="ss">Tu presencia es mi mejor regalo</p>
           <p
             style="font-family:var(--fp);font-size:1rem;color:var(--br-wm);line-height:1.75;max-width:480px;margin:0 auto;font-style:italic">
@@ -2056,7 +2072,8 @@
                 <path
                   d="M12 4.5a2 2 0 00-2 2c0 .8.5 1.5 1.2 1.8L3 13.5A1.5 1.5 0 004 16h16a1.5 1.5 0 001-2.5L12.8 8.3c.7-.3 1.2-1 1.2-1.8a2 2 0 00-2-2z" />
               </svg>Código de vestimenta</div>
-            <img src="img/estilo vaquero.png" alt="¡Vístete al Estilo Vaquero!" class="section-header-img" />
+            <img loading="lazy" decoding="async" src="img/estilo vaquero.png" alt="¡Vístete al Estilo Vaquero!"
+              class="section-header-img" />
             <p style="font-family:var(--fb);font-size:.96rem;color:var(--br-wm);line-height:1.72;max-width:360px">Ven
               con tu mejor outfit vaquero. Sombreros, botas, flecos — todo vale.</p>
             <div class="dtgs">
@@ -2069,7 +2086,7 @@
           <!-- SVG boots (dress-code section) -->
           <div class="dvi rv" style="transition-delay:.2s">
             <!-- Botas grandes: reemplaza con tu propio PNG (fondo transparente, ~400x560px) -->
-            <img src="assets/botas-grande.png" alt="" width="200" height="280"
+            <img loading="lazy" decoding="async" src="assets/botas-grande.png" alt="" width="200" height="280"
               style="animation:fch 7s ease-in-out infinite;filter:drop-shadow(0 16px 28px rgba(61,31,10,.2))"
               onerror="this.parentElement.style.display='none'">
           </div>
@@ -2103,7 +2120,8 @@
               <path d="M12 9v4M12 17h.01" />
               <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
             </svg>Aviso Importante</div>
-          <img src="img/habra alberca.png" alt="¡Habrá Alberca!" class="section-header-img" />
+          <img loading="lazy" decoding="async" src="img/habra alberca.png" alt="¡Habrá Alberca!"
+            class="section-header-img" />
           <p class="ss">No se te olvide nada</p>
         </div>
         <div class="avbox rv" style="transition-delay:.15s">
@@ -2166,7 +2184,8 @@
           </div>
           <a href="https://maps.app.goo.gl/EUXw7aMXGLDSQDwf9" target="_blank" rel="noopener noreferrer"
             class="mb-img-link" id="map-link" aria-label="Abrir en Google Maps">
-            <img src="img/boton-mapa.png" alt="Cómo Llegar — Abrir en Google Maps" class="map-btn-img" />
+            <img loading="lazy" decoding="async" src="img/boton-mapa.png" alt="Cómo Llegar — Abrir en Google Maps"
+              class="map-btn-img" />
           </a>
         </div>
       </div>
@@ -2197,7 +2216,8 @@
               stroke-width="1.8">
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke-linecap="round" />
             </svg>Última Parada</div>
-          <img src="img/te apuntas.png" alt="¿Te Apuntas al Rodeo?" class="section-header-img" />
+          <img loading="lazy" decoding="async" src="img/te apuntas.png" alt="¿Te Apuntas al Rodeo?"
+            class="section-header-img" />
           <p class="ss">Cuéntanos cuántas personas nos acompañarán</p>
         </div>
         <div class="rc rv" style="transition-delay:.2s">
@@ -2231,8 +2251,8 @@
     <footer role="contentinfo" class="wood-bg">
       <div class="fi">
         <!-- Escena decorativa (heno/barril): reemplaza con tu propio PNG, ~640x200px -->
-        <img src="assets/rancho-detalle.png" alt="" width="320" height="100" style="margin-bottom:8px;opacity:.85"
-          onerror="this.style.display='none'">
+        <img loading="lazy" decoding="async" src="assets/rancho-detalle.png" alt="" width="320" height="100"
+          style="margin-bottom:8px;opacity:.85" onerror="this.style.display='none'">
         <div class="fl"></div>
         <div class="fn">Romina</div>
         <div class="fl"></div>
