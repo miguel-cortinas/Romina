@@ -1468,12 +1468,20 @@
       text-align: center
     }
 
-    .welcome-header-img {
+    .welcome-header-img,
+    .section-header-img {
       width: min(380px, 85vw);
       height: auto;
       display: block;
       margin: 12px auto 18px;
       filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .6));
+    }
+
+    @media(min-width: 601px) {
+      .dtx .section-header-img {
+        margin-left: 0;
+        margin-right: auto;
+      }
     }
 
     .cwtxt {
@@ -1807,8 +1815,8 @@
               <circle cx="12" cy="12" r="9" />
               <path d="M12 7v5l3 3" stroke-linecap="round" />
             </svg>¿Cuánto falta?</div>
-          <h2 class="st"><br>¡Faltan...!</h2>
-          <p class="ss"><br>¡Prepara tus botas, ya casi llega el gran día!</p>
+          <img src="img/FALTAN.png" alt="¡Faltan...!" class="section-header-img" />
+          <p class="ss">¡Prepara tus botas, ya casi llega el gran día!</p>
         </div>
         <div class="cdgrid rv" style="transition-delay:.15s">
           <div class="cdbox">
@@ -1854,7 +1862,7 @@
               <rect x="3" y="4" width="18" height="16" rx="2" />
               <path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round" />
             </svg>Detalles del Evento</div>
-          <h2 class="st"><br>Aparta la Fecha</h2>
+          <img src="img/aparta la fecha.png" alt="Aparta la Fecha" class="section-header-img" />
           <p class="ss">Todo lo que necesitas saber</p>
         </div>
         <div class="cg">
@@ -1930,7 +1938,7 @@
               <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" stroke="#e8b96a" stroke-width="1.8" />
               <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#e8b96a" stroke-width="1.8" />
             </svg>Sugerencia de regalo</div>
-          <h2 class="st"><br>Lluvia de Sobres</h2>
+          <img src="img/lluvia de sobres.png" alt="Lluvia de Sobres" class="section-header-img" />
           <p class="ss">Tu presencia es mi mejor regalo</p>
           <p
             style="font-family:var(--fp);font-size:1rem;color:var(--br-wm);line-height:1.75;max-width:480px;margin:0 auto;font-style:italic">
@@ -1963,7 +1971,7 @@
                 <path
                   d="M12 4.5a2 2 0 00-2 2c0 .8.5 1.5 1.2 1.8L3 13.5A1.5 1.5 0 004 16h16a1.5 1.5 0 001-2.5L12.8 8.3c.7-.3 1.2-1 1.2-1.8a2 2 0 00-2-2z" />
               </svg>Código de vestimenta</div>
-            <h2 class="st"><br>¡Vístete al<br />Estilo Vaquero!</h2>
+            <img src="img/estilo vaquero.png" alt="¡Vístete al Estilo Vaquero!" class="section-header-img" />
             <p style="font-family:var(--fb);font-size:.96rem;color:var(--br-wm);line-height:1.72;max-width:360px">Ven
               con tu mejor outfit vaquero. Sombreros, botas, flecos — todo vale.</p>
             <div class="dtgs">
@@ -2006,7 +2014,7 @@
               <path d="M12 9v4M12 17h.01" />
               <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
             </svg>Aviso Importante</div>
-          <h2 class="st"><br>¡Habrá Alberca!</h2>
+          <img src="img/habra alberca.png" alt="¡Habrá Alberca!" class="section-header-img" />
           <p class="ss">No se te olvide nada</p>
         </div>
         <div class="avbox rv" style="transition-delay:.15s">
@@ -2092,7 +2100,7 @@
               stroke-width="1.8">
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke-linecap="round" />
             </svg>Última Parada</div>
-          <h1 class="st"><br>¿Te Apuntas al Rodeo?</h1>
+          <img src="img/te apuntas.png" alt="¿Te Apuntas al Rodeo?" class="section-header-img" />
           <p class="ss">Cuéntanos cuántas personas nos acompañarán</p>
         </div>
         <div class="rc rv" style="transition-delay:.2s">
