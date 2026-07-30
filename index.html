@@ -173,7 +173,13 @@
       opacity: .38
     }
 
-    /* .wood-bg — intro door panels, RSVP band, footer */
+    /* .wood-bg — intro door panels only (opaque texture needed to fully
+       hide the fixed background layer behind them during the intro).
+       El resto de la página muestra la textura a través de #bg-fixed,
+       que es una sola capa continua fija: aplicar .wood-bg a secciones
+       normales (como se hacía antes con RSVP y el footer) genera un
+       "parche" de fondo con recorte, posición y oscurecido distintos,
+       visible como una costura entre secciones. */
     .wood-bg {
       background-color: #3a1c0c;
       background-image: linear-gradient(rgba(18, 6, 1, 0.3), rgba(18, 6, 1, 0.3)), url('img/wood_texture.png');
@@ -873,7 +879,7 @@
 
     .ss {
       font-family: var(--fs);
-      font-size: clamp(1.15rem, 3.8vw, 1.65rem);
+      font-size: clamp(1.3rem, 4.3vw, 1.9rem);
       color: var(--rose3);
       margin-bottom: 36px;
       text-shadow: 0 1px 6px rgba(0, 0, 0, .35);
@@ -1995,7 +2001,7 @@
     </div>
 
     <!-- ── RSVP ── -->
-    <section id="rv" class="wood-bg" aria-label="Confirmar asistencia">
+    <section id="rv" aria-label="Confirmar asistencia">
       <div class="si">
         <div class="rv">
           <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a"
@@ -2034,7 +2040,7 @@
     </section>
 
     <!-- ── FOOTER ── -->
-    <footer role="contentinfo" class="wood-bg">
+    <footer role="contentinfo">
       <div class="fi">
         <!-- Escena decorativa (heno/barril): reemplaza con tu propio PNG, ~640x200px -->
         <img loading="lazy" decoding="async" src="assets/rancho-detalle.png" alt="" width="320" height="100"
