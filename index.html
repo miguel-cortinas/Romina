@@ -415,6 +415,55 @@
       transform: scale(.97)
     }
 
+    /* ── ROPE DIVIDER ── */
+    .rope-div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 4px 0;
+      overflow: hidden;
+      pointer-events: none;
+      user-select: none;
+    }
+    .rope-div svg {
+      width: 100%;
+      max-width: 480px;
+      height: 18px;
+      display: block;
+      opacity: .55;
+    }
+
+    /* ── TUMBLEWEED ── */
+    #tumbleweed {
+      position: fixed;
+      bottom: 28px;
+      /* empieza fuera de pantalla a la derecha */
+      right: -140px;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 8888;
+      opacity: 0;
+    }
+    #tumbleweed.rolling {
+      animation: twRoll var(--tw-dur, 9s) cubic-bezier(.38,.01,.62,.99) forwards;
+    }
+    @keyframes twRoll {
+      0%   { opacity: 0;  transform: translateX(0)   rotate(0deg)   scaleY(1) }
+      4%   { opacity: .85 }
+      /* leve aplastamiento al "rodar sobre el suelo" */
+      20%  { transform: translateX(calc(var(--tw-dist, -130vw) * .2))  rotate(-72deg)  scaleY(.94) }
+      21%  { transform: translateX(calc(var(--tw-dist, -130vw) * .21)) rotate(-76deg)  scaleY(1.06) }
+      40%  { transform: translateX(calc(var(--tw-dist, -130vw) * .4))  rotate(-144deg) scaleY(.94) }
+      41%  { transform: translateX(calc(var(--tw-dist, -130vw) * .41)) rotate(-148deg) scaleY(1.06) }
+      60%  { transform: translateX(calc(var(--tw-dist, -130vw) * .6))  rotate(-216deg) scaleY(.94) }
+      61%  { transform: translateX(calc(var(--tw-dist, -130vw) * .61)) rotate(-220deg) scaleY(1.06) }
+      80%  { transform: translateX(calc(var(--tw-dist, -130vw) * .8))  rotate(-288deg) scaleY(.94) }
+      96%  { opacity: .85 }
+      100% { opacity: 0;  transform: translateX(var(--tw-dist, -130vw)) rotate(-360deg) scaleY(1) }
+    }
+
     @keyframes gsh {
       0% {
         background-position: 200%
@@ -1242,17 +1291,22 @@
       transform: scale(.97)
     }
 
+
     @keyframes wap {
-
-      0%,
-      100% {
-        box-shadow: 0 8px 28px rgba(37, 211, 102, .4), 0 4px 10px rgba(0, 0, 0, .4)
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 28px rgba(37, 211, 102, .38), 0 4px 10px rgba(0, 0, 0, .4)
       }
-
-      50% {
-        box-shadow: 0 8px 44px rgba(37, 211, 102, .65), 0 4px 10px rgba(0, 0, 0, .4)
+      40% {
+        transform: scale(1.032);
+        box-shadow: 0 10px 40px rgba(37, 211, 102, .68), 0 4px 14px rgba(0, 0, 0, .45)
+      }
+      70% {
+        transform: scale(1.015);
+        box-shadow: 0 9px 32px rgba(37, 211, 102, .50), 0 4px 12px rgba(0, 0, 0, .42)
       }
     }
+
 
     .rn {
       margin-top: 22px;
@@ -1414,10 +1468,12 @@
       text-align: center
     }
 
-    /* ── CARTA (welcome letter) ── */
-    #cw {
-      padding: 70px 0 20px;
-      text-align: center
+    .welcome-header-img {
+      width: min(380px, 85vw);
+      height: auto;
+      display: block;
+      margin: 12px auto 18px;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .6));
     }
 
     .cwtxt {
@@ -1717,8 +1773,8 @@
               stroke-width="1.8">
               <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
             </svg>Bienvenida</div>
-          <h2 class="st"><br>¡TE INVITAMOS!</h2>
-          <p class="cwtxt"><br>Te damos la más cordial bienvenida a esta celebración tan especial. Queremos festejar
+          <img src="img/te invitamos.png" alt="¡Te Invitamos!" class="welcome-header-img" />
+          <p class="cwtxt">Te damos la más cordial bienvenida a esta celebración tan especial. Queremos festejar
             este
             día lleno de alegría, música y momentos inolvidables al estilo vaquero. Prepara tus botas y tu
             sombrero para compartir juntos un día de mucha diversión. <br>¡Gracias por acompañarnos!</p>
@@ -1726,6 +1782,21 @@
         </div>
       </div>
     </section>
+
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- cuerda trenzada: dos ondas entrelazadas + nudos equidistantes -->
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <!-- nudos cada 80px -->
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
 
     <!-- ── COUNTDOWN ── -->
     <section id="cd" aria-label="Cuenta regresiva">
@@ -1760,6 +1831,19 @@
         <div class="cdnote rv" style="transition-delay:.25s">23 de Agosto · 12:00 pm</div>
       </div>
     </section>
+
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
 
     <!-- ── DETAILS ── -->
     <section id="dt" aria-label="Detalles del evento">
@@ -1822,6 +1906,19 @@
       </div>
     </section>
 
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
+
     <!-- ── REGALO / LLUVIA DE SOBRES ── -->
     <section id="pn" aria-label="Regalo sugerido">
       <div class="si">
@@ -1842,6 +1939,19 @@
         </div>
       </div>
     </section>
+
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
 
     <!-- ── DRESS CODE ── -->
     <section id="dr" aria-label="Código de vestimenta">
@@ -1874,6 +1984,19 @@
       </div>
     </section>
 
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
+
     <!-- ── AVISO (alberca) ── -->
     <section id="av" aria-label="Aviso importante">
       <div class="si">
@@ -1900,6 +2023,19 @@
         </div>
       </div>
     </section>
+
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
 
     <!-- ── LOCATION ── -->
     <section id="lc" aria-label="Ubicación">
@@ -1934,6 +2070,19 @@
         </div>
       </div>
     </section>
+
+    <!-- ── ROPE DIVIDER ── -->
+    <div class="rope-div" aria-hidden="true">
+      <svg viewBox="0 0 480 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path d="M0 9 Q20 3 40 9 Q60 15 80 9 Q100 3 120 9 Q140 15 160 9 Q180 3 200 9 Q220 15 240 9 Q260 3 280 9 Q300 15 320 9 Q340 3 360 9 Q380 15 400 9 Q420 3 440 9 Q460 15 480 9" fill="none" stroke="#c9933a" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M0 9 Q20 15 40 9 Q60 3 80 9 Q100 15 120 9 Q140 3 160 9 Q180 15 200 9 Q220 3 240 9 Q260 15 280 9 Q300 3 320 9 Q340 15 360 9 Q380 3 400 9 Q420 15 440 9 Q460 3 480 9" fill="none" stroke="#8b5e3c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+        <circle cx="80"  cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="160" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="240" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="320" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+        <circle cx="400" cy="9" r="3.5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1"/>
+      </svg>
+    </div>
 
     <!-- ── RSVP ── -->
     <section id="rv" aria-label="Confirmar asistencia">
@@ -1985,6 +2134,35 @@
       </div>
     </footer>
   </div><!-- /#main -->
+
+  <!-- ── TUMBLEWEED (elemento decorativo fijo) ── -->
+  <div id="tumbleweed" aria-hidden="true">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- cuerpo redondo con ramas irregulares -->
+      <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <!-- ramas principales -->
+        <path d="M40 40 Q28 20 18 10" stroke="#8b5e3c" stroke-width="2.2"/>
+        <path d="M40 40 Q55 22 65 12" stroke="#8b5e3c" stroke-width="2"/>
+        <path d="M40 40 Q18 40 8 36" stroke="#8b5e3c" stroke-width="2.2"/>
+        <path d="M40 40 Q62 40 72 36" stroke="#8b5e3c" stroke-width="2"/>
+        <path d="M40 40 Q25 58 16 68" stroke="#8b5e3c" stroke-width="2"/>
+        <path d="M40 40 Q56 60 64 70" stroke="#8b5e3c" stroke-width="2.2"/>
+        <path d="M40 40 Q40 20 40 8"  stroke="#8b5e3c" stroke-width="1.8"/>
+        <path d="M40 40 Q40 60 40 72" stroke="#8b5e3c" stroke-width="1.8"/>
+        <!-- ramas secundarias -->
+        <path d="M28 26 Q22 18 24 10" stroke="#6b3a1f" stroke-width="1.4"/>
+        <path d="M52 26 Q58 18 56 10" stroke="#6b3a1f" stroke-width="1.4"/>
+        <path d="M22 40 Q12 30 10 22" stroke="#6b3a1f" stroke-width="1.4"/>
+        <path d="M58 40 Q68 30 70 22" stroke="#6b3a1f" stroke-width="1.4"/>
+        <path d="M28 54 Q22 62 24 70" stroke="#6b3a1f" stroke-width="1.4"/>
+        <path d="M52 54 Q58 62 56 70" stroke="#6b3a1f" stroke-width="1.4"/>
+        <!-- circulo exterior tenue -->
+        <circle cx="40" cy="40" r="30" stroke="#c9933a" stroke-width="1" stroke-dasharray="4 6" opacity=".5"/>
+        <!-- centro -->
+        <circle cx="40" cy="40" r="5" fill="#6b3a1f" stroke="#c9933a" stroke-width="1.2"/>
+      </g>
+    </svg>
+  </div>
 
   <script>
     /* ── DUST PARTICLES ── */
@@ -2044,6 +2222,9 @@
 
       /* 5. Ocultar intro (1700ms) */
       setTimeout(function () { intro.style.display = 'none'; }, 1700);
+
+      /* 6. Iniciar tumbleweed (aparece por primera vez ~8s despues) */
+      initTumbleweed();
     });
 
     /* ── LLUVIA DE SOBRES ROSADOS ── */
@@ -2177,6 +2358,49 @@
         fadeOut();
       }
     });
+
+    /* ── TUMBLEWEED ──
+       Aparece desde la derecha y rueda hacia la izquierda cada ~22-32 segundos.
+       La primera aparición ocurre 8 segundos después de abrir la invitación. */
+    function initTumbleweed() {
+      var tw = document.getElementById('tumbleweed');
+      if (!tw) return;
+
+      function roll() {
+        var dur  = (Math.random() * 5 + 7).toFixed(1) + 's';  /* 7-12 s  */
+        var dist = -(window.innerWidth + 160);                 /* travesia completa */
+        /* altura variable: 15-45% desde la parte inferior */
+        var bot  = Math.floor(Math.random() * 30 + 15);
+        /* tamaño variable: 55-90px */
+        var sz   = Math.floor(Math.random() * 35 + 55);
+
+        tw.style.cssText = [
+          'bottom:' + bot + 'px',
+          'right:-' + (sz + 20) + 'px',
+          'width:' + sz + 'px',
+          'height:' + sz + 'px',
+          'opacity:0'
+        ].join(';');
+        tw.style.setProperty('--tw-dur',  dur);
+        tw.style.setProperty('--tw-dist', dist + 'px');
+
+        /* forzar reflow para reiniciar animación */
+        tw.classList.remove('rolling');
+        void tw.offsetWidth;
+        tw.classList.add('rolling');
+
+        /* limpiar clase al terminar y programar la siguiente */
+        var durMs = parseFloat(dur) * 1000;
+        setTimeout(function () {
+          tw.classList.remove('rolling');
+          /* intervalo entre apariciones: 20-35 s */
+          setTimeout(roll, Math.random() * 15000 + 20000);
+        }, durMs + 200);
+      }
+
+      /* primera aparición a los 8 segundos */
+      setTimeout(roll, 8000);
+    }
   </script>
 </body>
 
