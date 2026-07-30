@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#3d1f0a" />
   <title>¡Estás invitado a mi fiesta! — Romina</title>
-  <meta name="description" content="¡Acompáñame a celebrar mi cumpleaños! 23 de agosto · 12:00 pm · Granja Los Tres K." />
+  <meta name="description"
+    content="¡Acompáñame a celebrar mi cumpleaños! 23 de agosto · 12:00 pm · Granja Los Tres K." />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://fiesta-romina.pages.dev/" />
@@ -15,7 +16,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fiesta-romina.pages.dev/" />
   <meta property="og:title" content="¡Estás invitado a mi fiesta! — Romina" />
-  <meta property="og:description" content="¡Acompáñame a celebrar mi cumpleaños! 23 de agosto · 12:00 pm · Granja Los Tres K." />
+  <meta property="og:description"
+    content="¡Acompáñame a celebrar mi cumpleaños! 23 de agosto · 12:00 pm · Granja Los Tres K." />
   <meta property="og:image" content="https://fiesta-romina.pages.dev/img/preview.jpeg" />
   <meta property="og:image:secure_url" content="https://fiesta-romina.pages.dev/img/preview.jpeg" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -28,7 +30,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://fiesta-romina.pages.dev/" />
   <meta name="twitter:title" content="¡Estás invitado a mi fiesta! — Romina" />
-  <meta name="twitter:description" content="¡Acompáñame a celebrar mi cumpleaños! 23 de agosto · 12:00 pm · Granja Los Tres K." />
+  <meta name="twitter:description"
+    content="¡Acompáñame a celebrar mi cumpleaños! 23 de agosto · 12:00 pm · Granja Los Tres K." />
   <meta name="twitter:image" content="https://fiesta-romina.pages.dev/img/preview.jpeg" />
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 28'%3E%3Cpath fill='%233d1f0a' d='M6 20C6 20 10 10 22 10C34 10 38 20 38 20L6 20Z'/%3E%3Cpath fill='%233d1f0a' d='M14 10C14 10 16 2 22 2C28 2 30 10 30 10L14 10Z'/%3E%3Crect fill='%233d1f0a' x='6' y='20' width='32' height='3' rx='1.5'/%3E%3C/svg%3E" />
@@ -168,7 +171,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.4) 100%);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, transparent 15%, transparent 85%, rgba(0, 0, 0, 0.4) 100%);
       pointer-events: none;
     }
 
@@ -397,6 +400,7 @@
     #hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -426,10 +430,11 @@
       position: relative;
       z-index: 3;
       text-align: center;
-      padding: 60px 24px 30px;
+      padding: clamp(20px, 4vh, 48px) 20px 16px;
       display: flex;
       flex-direction: column;
-      align-items: center
+      align-items: center;
+      justify-content: center
     }
 
     /* CSS-only sombrero vaquero */
@@ -625,11 +630,11 @@
     }
 
     .sh {
-      margin-top: 26px;
+      margin-top: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       opacity: 0;
       animation: fdi 1s ease forwards 1.6s;
       color: rgba(253, 236, 200, .75)
@@ -798,18 +803,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 18px;
-      margin-top: 14px
+      gap: 16px;
+      margin-top: 20px;
+      align-items: stretch;
     }
 
     .icard {
-      flex: 1 1 228px;
-      max-width: 258px;
+      flex: 1 1 200px;
+      max-width: 240px;
       background: #fdf6ec;
       border: 2px solid #e8b96a;
       border-top: 4px solid #c9933a;
       border-radius: 4px;
-      padding: 28px 22px 24px;
+      padding: 20px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       box-shadow: 0 8px 30px rgba(0, 0, 0, .45), 0 0 15px rgba(201, 147, 58, .2);
       transition: transform .25s, box-shadow .25s;
       position: relative;
@@ -847,48 +857,51 @@
     }
 
     .cico {
-      width: 52px;
-      height: 52px;
-      margin-bottom: 16px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: radial-gradient(circle at 35% 30%, #ffffff, #fde8ef 75%);
       border-radius: 50%;
       border: 2px solid #c9933a;
-      box-shadow: 0 4px 12px rgba(201, 147, 58, .35), inset 0 1px 2px rgba(255, 255, 255, .9)
+      box-shadow: 0 4px 12px rgba(201, 147, 58, .35), inset 0 1px 2px rgba(255, 255, 255, .9);
+      flex-shrink: 0;
     }
 
     .clb {
       font-family: var(--fb);
       font-size: 11px;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: #8b4e18;
       font-weight: 700;
-      margin-bottom: 6px
+      margin-bottom: 4px
     }
 
     .cvl {
       font-family: var(--fp);
-      font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+      font-size: clamp(1.05rem, 3vw, 1.25rem);
       font-weight: 900;
       color: #2b1104;
-      line-height: 1.2
+      line-height: 1.25;
+      margin-bottom: 4px;
     }
 
     .cdiv {
       width: 28px;
       height: 2px;
       background: linear-gradient(to right, #c9933a, transparent);
-      margin: 10px 0
+      margin: 8px auto;
     }
 
     .csb {
-      font-size: .88rem;
+      font-size: .85rem;
       color: #5c3012;
       font-weight: 600;
-      line-height: 1.4
+      line-height: 1.35;
+      margin-top: auto;
     }
 
     /* ── PINATA / LLUVIA DE SOBRES ── */
@@ -924,12 +937,15 @@
         opacity: 0;
         transform: translateY(-25px) rotate(0deg) scale(0.8);
       }
+
       15% {
         opacity: 0.38;
       }
+
       85% {
         opacity: 0.38;
       }
+
       100% {
         opacity: 0;
         transform: translateY(280px) rotate(360deg) scale(1.05) translateX(var(--envDrift));
@@ -954,7 +970,7 @@
       min-width: 268px
     }
 
-    .dtx > p {
+    .dtx>p {
       color: #fdf6ec !important;
       font-size: 1.05rem !important;
       line-height: 1.8 !important;
@@ -968,10 +984,11 @@
     }
 
     .dtgs {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
-      margin-top: 18px
+      margin-top: 18px;
+      max-width: 320px;
     }
 
     .dtg {
@@ -982,11 +999,16 @@
       font-size: .85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 9px 18px;
+      padding: 9px 12px;
       border-radius: 4px;
       font-weight: 700;
       box-shadow: 0 4px 14px rgba(0, 0, 0, .5);
       text-shadow: 0 1px 2px rgba(0, 0, 0, .8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
     }
 
     .dtg.r {
@@ -1096,7 +1118,7 @@
       box-shadow: 0 12px 50px rgba(0, 0, 0, .65), inset 0 0 30px rgba(240, 200, 130, .1)
     }
 
-    .rc > p {
+    .rc>p {
       color: #fdf6ec !important;
       font-size: 1.05rem !important;
       line-height: 1.8 !important;
@@ -1467,8 +1489,8 @@
       }
 
       .icard {
-        flex: 1 1 100%;
-        max-width: 400px
+        flex: 1 1 calc(50% - 10px);
+        max-width: 280px;
       }
 
       .dw {
@@ -1477,7 +1499,9 @@
       }
 
       .dtgs {
-        justify-content: center
+        margin: 18px auto 0;
+        width: 100%;
+        max-width: 280px;
       }
 
       .dvi {
@@ -1544,7 +1568,7 @@
 
         <!-- Letrero hero PNG -->
         <img src="img/letrero-hero.png" alt="Romina — Fiesta Vaquera · 23 de Agosto · 12:00 pm" id="hn"
-          style="width:min(540px,90vw);height:auto;display:block;margin:0 auto 20px;filter:drop-shadow(0 18px 38px rgba(0,0,0,.55));opacity:0;animation:fdi .9s ease forwards .3s" />
+          style="width:min(480px,85vw);max-height:55vh;object-fit:contain;height:auto;display:block;margin:0 auto 10px;filter:drop-shadow(0 18px 38px rgba(0,0,0,.55));opacity:0;animation:fdi .9s ease forwards .3s" />
 
         <div class="sh" aria-hidden="true">
           <span class="shl">Desliza</span>
@@ -1600,12 +1624,11 @@
       <div class="si">
         <div class="rv" style="text-align:center">
           <div class="ey" style="justify-content:center">Bienvenida</div>
-          <h2 class="st">Un Corazón de Rancho</h2>
-          <p class="cwtxt">Romina tiene esa chispa que contagia a todo el que la conoce: risa fácil, curiosidad sin
-            límites y ganas de vivir cada día como una aventura nueva. Por eso, para celebrarla no bastaba una fiesta
-            cualquiera — queríamos algo con botas puestas, sombrero bien calado y todo el espíritu del rancho. Gracias
-            por ser parte de su historia y por acompañarnos a celebrar este día tan especial.</p>
-          <div class="cwsig">— Con cariño, su familia —</div>
+          <h2 class="st">¡TE INVITAMOS!</h2>
+          <p class="cwtxt">Te damos la más cordial bienvenida a esta celebración tan especial. Queremos festejar este
+            día lleno de alegría, música y momentos inolvidables al estilo vaquero. Prepara tus botas y tu
+            sombrero para compartir juntos un día de mucha diversión. <br>¡Gracias por acompañarnos!</p>
+          <div class="cwsig">— NO FALTES —</div>
         </div>
       </div>
     </section>
@@ -1614,9 +1637,9 @@
     <section id="cd" aria-label="Cuenta regresiva">
       <div class="si">
         <div class="rv" style="text-align:center">
-          <div class="ey" style="justify-content:center">El Reloj del Rancho</div>
-          <h2 class="st">Faltan para el Rodeo</h2>
-          <p class="ss">¡Prepara tus botas, ya casi llega el gran día!</p>
+          <div class="ey" style="justify-content:center">¿Cuánto falta?</div>
+          <h2 class="st"><br>¡Faltan...!</h2>
+          <p class="ss"><br>¡Prepara tus botas, ya casi llega el gran día!</p>
         </div>
         <div class="cdgrid rv" style="transition-delay:.15s">
           <div class="cdbox">
@@ -1644,9 +1667,9 @@
     <section id="dt" aria-label="Detalles del evento">
       <div class="si">
         <div class="rv">
-          <div class="ey">El itinerario</div>
-          <h2 class="st">Aparta la Fecha</h2>
-          <p class="ss">Todo lo que necesitas para el gran día</p>
+          <div class="ey">Detalles del Evento</div>
+          <h2 class="st"><br>Aparta la Fecha</h2>
+          <p class="ss">Todo lo que necesitas saber</p>
         </div>
         <div class="cg">
           <div class="icard rv" style="transition-delay:.05s">
@@ -1669,7 +1692,7 @@
             <div class="clb">Hora</div>
             <div class="cvl">12:00 pm</div>
             <div class="cdiv"></div>
-            <div class="csb">¡No llegues tarde al rodeo!</div>
+            <div class="csb">¡No llegues tarde!</div>
           </div>
           <div class="icard rv" style="transition-delay:.19s">
             <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -1690,20 +1713,9 @@
             <div class="clb">Piñata</div>
             <div class="cvl">Temática Vaquera</div>
             <div class="cdiv"></div>
-            <div class="csb">¡Habrá dulces y sorpresas!</div>
+            <div class="csb">¡Habrá mucha diversión!</div>
           </div>
-          <div class="icard rv" style="transition-delay:.33s">
-            <div class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="4.5" r="1.6" stroke="#c9933a" stroke-width="1.7" />
-                <path d="M12 6.1v2" stroke="#c9933a" stroke-width="1.7" stroke-linecap="round" />
-                <path d="M12 8.1L3 14.5a2 2 0 001.1 3.6h15.8a2 2 0 001.1-3.6z" stroke="#c9933a" stroke-width="1.7"
-                  stroke-linejoin="round" />
-              </svg></div>
-            <div class="clb">Vestimenta</div>
-            <div class="cvl">¡Estilo Vaquero!</div>
-            <div class="cdiv"></div>
-            <div class="csb">Botas, sombrero y todo el estilo</div>
-          </div>
+
         </div>
       </div>
     </section>
@@ -1719,12 +1731,12 @@
               <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" stroke="#c9933a" stroke-width="1.8" />
               <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#c9933a" stroke-width="1.8" />
             </svg>Sugerencia de regalo</div>
-          <h2 class="st">Lluvia de Sobres</h2>
-          <p class="ss">Tu presencia ya es el mejor regalo</p>
+          <h2 class="st"><br>Lluvia de Sobres</h2>
+          <p class="ss">Tu presencia es mi mejor regalo</p>
           <p
             style="font-family:var(--fp);font-size:1rem;color:var(--br-wm);line-height:1.75;max-width:480px;margin:0 auto;font-style:italic">
-            Si deseas hacerle un regalo especial a Romina, una lluvia de sobres es la manera más bonita de contribuir a
-            sus sueños.</p>
+            Sin embargo, si deseas tener un detalle adicional conmigo, puedes
+            contribuir a la lluvia de sobres. <br>Agradezco de todo corazón tu cariño y generosidad.</p>
         </div>
       </div>
     </section>
@@ -1734,16 +1746,15 @@
       <div class="si">
         <div class="dw">
           <div class="dtx rv">
-            <div class="ey">Código del Corral</div>
-            <h2 class="st">¡Vístete al<br />Estilo Vaquero!</h2>
-            <p class="ss">El estilo del rancho</p>
+            <div class="ey">Código de vestimenta</div>
+            <h2 class="st"><br>¡Vístete al<br />Estilo Vaquero!</h2>
             <p style="font-family:var(--fb);font-size:.96rem;color:var(--br-wm);line-height:1.72;max-width:360px">Ven
               con tu mejor outfit vaquero. Sombreros, botas, flecos — todo vale.</p>
             <div class="dtgs">
               <span class="dtg">Sombrero</span>
               <span class="dtg r">Botas</span>
               <span class="dtg">Flecos</span>
-              <span class="dtg r">Flores</span>
+              <span class="dtg r">Cinturón</span>
             </div>
           </div>
           <!-- SVG boots (dress-code section) -->
@@ -1762,7 +1773,7 @@
       <div class="si">
         <div class="rv" style="text-align:center">
           <div class="ey" style="justify-content:center">Aviso Importante</div>
-          <h2 class="st">¡Habrá Alberca!</h2>
+          <h2 class="st"><br>¡Habrá Alberca!</h2>
           <p class="ss">No se te olvide nada</p>
         </div>
         <div class="avbox rv" style="transition-delay:.15s">
@@ -1773,7 +1784,7 @@
               <path d="M2 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke="#c2637a" stroke-width="1.8" stroke-linecap="round" />
             </svg>
           </div>
-          <p class="avtxt">Habrá actividades acuáticas, así que prepárate. No olvides tu <strong>traje de
+          <p class="avtxt">No olvides tu <strong>traje de
               baño</strong>, <strong>bloqueador solar</strong>, una <strong>toalla</strong> y una <strong>muda de
               ropa</strong> para cambiarte.</p>
         </div>
@@ -1784,9 +1795,7 @@
     <section id="lc" aria-label="Ubicación">
       <div class="si">
         <div class="rv">
-          <div class="ey">Coordenadas del Rancho</div>
-          <h2 class="st">El Rancho</h2>
-          <p class="ss">Granja Los Tres K</p>
+          <div class="ey">¿Dónde es?</div>
         </div>
         <div class="rv" style="transition-delay:.15s">
           <div class="mw">
@@ -1804,8 +1813,8 @@
               allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa Granja Los Tres K"
               aria-label="Mapa del evento"></iframe>
           </div>
-          <a href="https://maps.app.goo.gl/EUXw7aMXGLDSQDwf9" target="_blank" rel="noopener noreferrer" class="mb-img-link"
-            id="map-link" aria-label="Abrir en Google Maps">
+          <a href="https://maps.app.goo.gl/EUXw7aMXGLDSQDwf9" target="_blank" rel="noopener noreferrer"
+            class="mb-img-link" id="map-link" aria-label="Abrir en Google Maps">
             <img src="img/boton-mapa.png" alt="Cómo Llegar — Abrir en Google Maps" class="map-btn-img" />
           </a>
         </div>
@@ -1817,14 +1826,15 @@
       <div class="si">
         <div class="rv">
           <div class="ey">Última Parada</div>
-          <h1 class="st">¿Te Apuntas al Rodeo?</h1>
+          <h1 class="st"><br>¿Te Apuntas al Rodeo?</h1>
           <p class="ss">Cuéntanos cuántas personas nos acompañarán</p>
         </div>
         <div class="rc rv" style="transition-delay:.2s">
           <p
             style="font-family:var(--fp);font-size:.97rem;color:rgba(253,246,236,.7);line-height:1.75;margin-bottom:26px;font-style:italic">
-            Por favor confirma tu asistencia e indícanos cuántas personas vendrán. ¡Te esperamos con todo el rodeo!</p>
-          <a href="https://wa.me/526142536748?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Romina%20el%2023%20de%20agosto%20%F0%9F%A4%A0%20Seremos%20__%20personas."
+            Por favor confirma tu asistencia e indícanos cuántas personas te acompañarán. <br>¡Te esperamos!
+          </p>
+          <a href="https://wa.me/526142536748?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia.%0ANombre:%20%0ANumero%20de%20acompa%C3%B1antes:"
             target="_blank" rel="noopener noreferrer" class="wb" id="whatsapp-btn" aria-label="Confirmar por WhatsApp">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path
@@ -1845,7 +1855,9 @@
         <div class="fl"></div>
         <div class="fn">Romina</div>
         <div class="fl"></div>
-        <p class="fno" style="font-size:.88rem;color:#f0c882;margin-top:10px;letter-spacing:3px;text-shadow:0 0 15px rgba(240,200,130,0.4);">¡GRACIAS POR ACOMPAÑARME!</p>
+        <p class="fno"
+          style="font-size:.88rem;color:#f0c882;margin-top:10px;letter-spacing:3px;text-shadow:0 0 15px rgba(240,200,130,0.4);">
+          ¡GRACIAS POR ACOMPAÑARME!</p>
       </div>
     </footer>
   </div><!-- /#main -->
