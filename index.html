@@ -73,7 +73,8 @@
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
+      height: 100%;
     }
 
     body {
@@ -81,13 +82,31 @@
       font-family: var(--fb);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      /* REALISTIC WOOD PLANK TEXTURE fills the entire page */
+      min-height: 100%;
+      position: relative;
+    }
+
+    body:not(.dopen) {
+      overflow: hidden !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      touch-action: none !important;
+    }
+
+    #bg-fixed {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      z-index: -2;
+      pointer-events: none;
       background-color: #3a1c0c;
       background-image: linear-gradient(rgba(18, 6, 1, 0.4), rgba(18, 6, 1, 0.4)), url('img/wood_texture.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
+      transform: translateZ(0);
     }
 
     #dc {
@@ -113,11 +132,15 @@
     #intro {
       position: fixed;
       inset: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
       z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden
+      overflow: hidden;
+      touch-action: none;
     }
 
     .ibg {
@@ -753,7 +776,9 @@
       margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 12px
+      justify-content: flex-start;
+      text-align: left;
+      gap: 10px;
     }
 
     .ey::before {
@@ -773,6 +798,8 @@
       line-height: 1;
       margin-bottom: 8px;
       text-shadow: 2px 3px 6px rgba(0, 0, 0, .9), 0 0 35px rgba(240, 200, 130, .4);
+      text-align: center;
+      width: 100%;
     }
 
     .ss {
@@ -781,6 +808,8 @@
       color: #f8b4c4;
       margin-bottom: 36px;
       text-shadow: 0 2px 6px rgba(0, 0, 0, .8);
+      text-align: center;
+      width: 100%;
     }
 
     .rv {
@@ -1522,6 +1551,7 @@
 </head>
 
 <body>
+  <div id="bg-fixed"></div>
   <canvas id="dc"></canvas>
 
   <!-- Musica de fondo: Arreando La Mula.mp3 -->
@@ -1563,7 +1593,7 @@
   <div id="main">
 
     <!-- ── HERO ── -->
-    <section id="hero" class="wood-bg" aria-label="Inicio">
+    <section id="hero" aria-label="Inicio">
       <div class="hi">
 
         <!-- Letrero hero PNG -->
@@ -1622,10 +1652,11 @@
     <!-- ── CARTA ── -->
     <section id="cw" aria-label="Mensaje de bienvenida">
       <div class="si">
-        <div class="rv" style="text-align:center">
-          <div class="ey" style="justify-content:center">Bienvenida</div>
-          <h2 class="st">¡TE INVITAMOS!</h2>
-          <p class="cwtxt">Te damos la más cordial bienvenida a esta celebración tan especial. Queremos festejar este
+        <div class="rv">
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>Bienvenida</div>
+          <h2 class="st"><br>¡TE INVITAMOS!</h2>
+          <p class="cwtxt"><br>Te damos la más cordial bienvenida a esta celebración tan especial. Queremos festejar
+            este
             día lleno de alegría, música y momentos inolvidables al estilo vaquero. Prepara tus botas y tu
             sombrero para compartir juntos un día de mucha diversión. <br>¡Gracias por acompañarnos!</p>
           <div class="cwsig">— NO FALTES —</div>
@@ -1636,8 +1667,8 @@
     <!-- ── COUNTDOWN ── -->
     <section id="cd" aria-label="Cuenta regresiva">
       <div class="si">
-        <div class="rv" style="text-align:center">
-          <div class="ey" style="justify-content:center">¿Cuánto falta?</div>
+        <div class="rv">
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg>¿Cuánto falta?</div>
           <h2 class="st"><br>¡Faltan...!</h2>
           <p class="ss"><br>¡Prepara tus botas, ya casi llega el gran día!</p>
         </div>
@@ -1667,7 +1698,7 @@
     <section id="dt" aria-label="Detalles del evento">
       <div class="si">
         <div class="rv">
-          <div class="ey">Detalles del Evento</div>
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/></svg>Detalles del Evento</div>
           <h2 class="st"><br>Aparta la Fecha</h2>
           <p class="ss">Todo lo que necesitas saber</p>
         </div>
@@ -1723,13 +1754,13 @@
     <!-- ── REGALO / LLUVIA DE SOBRES ── -->
     <section id="pn" aria-label="Regalo sugerido">
       <div class="si">
-        <div class="rv" style="text-align:center">
-          <div class="ey" style="justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-              <path d="M20 12v10H4V12" stroke="#c9933a" stroke-width="1.8" />
-              <path d="M22 7H2v5h20V7z" stroke="#c9933a" stroke-width="1.8" />
-              <path d="M12 22V7" stroke="#c9933a" stroke-width="1.8" />
-              <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" stroke="#c9933a" stroke-width="1.8" />
-              <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#c9933a" stroke-width="1.8" />
+        <div class="rv">
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M20 12v10H4V12" stroke="#e8b96a" stroke-width="1.8" />
+              <path d="M22 7H2v5h20V7z" stroke="#e8b96a" stroke-width="1.8" />
+              <path d="M12 22V7" stroke="#e8b96a" stroke-width="1.8" />
+              <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" stroke="#e8b96a" stroke-width="1.8" />
+              <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#e8b96a" stroke-width="1.8" />
             </svg>Sugerencia de regalo</div>
           <h2 class="st"><br>Lluvia de Sobres</h2>
           <p class="ss">Tu presencia es mi mejor regalo</p>
@@ -1746,7 +1777,7 @@
       <div class="si">
         <div class="dw">
           <div class="dtx rv">
-            <div class="ey">Código de vestimenta</div>
+            <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><path d="M12 4.5a2 2 0 00-2 2c0 .8.5 1.5 1.2 1.8L3 13.5A1.5 1.5 0 004 16h16a1.5 1.5 0 001-2.5L12.8 8.3c.7-.3 1.2-1 1.2-1.8a2 2 0 00-2-2z"/></svg>Código de vestimenta</div>
             <h2 class="st"><br>¡Vístete al<br />Estilo Vaquero!</h2>
             <p style="font-family:var(--fb);font-size:.96rem;color:var(--br-wm);line-height:1.72;max-width:360px">Ven
               con tu mejor outfit vaquero. Sombreros, botas, flecos — todo vale.</p>
@@ -1771,8 +1802,8 @@
     <!-- ── AVISO (alberca) ── -->
     <section id="av" aria-label="Aviso importante">
       <div class="si">
-        <div class="rv" style="text-align:center">
-          <div class="ey" style="justify-content:center">Aviso Importante</div>
+        <div class="rv">
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>Aviso Importante</div>
           <h2 class="st"><br>¡Habrá Alberca!</h2>
           <p class="ss">No se te olvide nada</p>
         </div>
@@ -1795,7 +1826,7 @@
     <section id="lc" aria-label="Ubicación">
       <div class="si">
         <div class="rv">
-          <div class="ey">¿Dónde es?</div>
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>¿Dónde es?</div>
         </div>
         <div class="rv" style="transition-delay:.15s">
           <div class="mw">
@@ -1822,10 +1853,10 @@
     </section>
 
     <!-- ── RSVP ── -->
-    <section id="rv" class="wood-bg" aria-label="Confirmar asistencia">
+    <section id="rv" aria-label="Confirmar asistencia">
       <div class="si">
         <div class="rv">
-          <div class="ey">Última Parada</div>
+          <div class="ey"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b96a" stroke-width="1.8"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke-linecap="round"/></svg>Última Parada</div>
           <h1 class="st"><br>¿Te Apuntas al Rodeo?</h1>
           <p class="ss">Cuéntanos cuántas personas nos acompañarán</p>
         </div>
@@ -1847,7 +1878,7 @@
     </section>
 
     <!-- ── FOOTER ── -->
-    <footer class="wood-bg" role="contentinfo">
+    <footer role="contentinfo">
       <div class="fi">
         <!-- Escena decorativa (heno/barril): reemplaza con tu propio PNG, ~640x200px -->
         <img src="assets/rancho-detalle.png" alt="" width="320" height="100" style="margin-bottom:8px;opacity:.85"
